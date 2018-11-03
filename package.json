@@ -1,0 +1,48 @@
+{
+  "name": "short-number",
+  "version": "0.0.0",
+  "description": "Compact number formatting logic",
+  "main": "dist/short-number.umd.js",
+  "module": "dist/short-number.es5.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "tsc && tsc --module commonjs --outDir dist/es && rollup -c rollup.config.ts",
+    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "start": "tsc -w & rollup -c rollup.config.ts -w",
+    "prebuild": "rimraf dist",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/snewcomer/short-number.git"
+  },
+  "keywords": [
+    "short",
+    "number",
+    "formatting"
+  ],
+  "author": "Scott Newcomer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snewcomer/short-number/issues"
+  },
+  "homepage": "https://github.com/snewcomer/short-number#readme",
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "@types/node": "^10.12.2",
+    "jest": "^23.6.0",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.66.6",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.1.5"
+  }
+}
