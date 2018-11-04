@@ -33,29 +33,29 @@ The following APIs take the language code as the the second argument based on [I
 ```js
 import cldrCompactNumber from 'cldr-compact-number';
 
-const { format } = cldrCompactNumber;
+const { compactFormat } = cldrCompactNumber;
 
-format(19634, 'en', localeData);
+compactFormat(19634, 'en', localeData);
 // 19K
 ```
 
 ```js
-format(19634, 'en', localeData, { significantDigits: 1, minimumFractionDigits: 1, maximumFractionDigits: 2 });
+compactFormat(19634, 'en', localeData, { significantDigits: 1, minimumFractionDigits: 1, maximumFractionDigits: 2 });
 // 19.6K
 ```
 
 ```js
-format(101, 'en', localeData, { significantDigits: 1, financialFormat: true });
+compactFormat(101, 'en', localeData, { significantDigits: 1, financialFormat: true });
 // 0.1M
 ```
 
 ```js
-format(19634, 'ja', localeData);
+compactFormat(19634, 'ja', localeData);
 // 2万
 ```
 
 ```js
-format(19634, 'es', localeData, { significantDigits: 1 });
+compactFormat(19634, 'es', localeData, { significantDigits: 1 });
 // 19,6 mil
 ```
 
@@ -68,13 +68,13 @@ format(19634, 'es', localeData, { significantDigits: 1 });
 
 This doesn't seem shorter!!!! (╯°□°）╯︵ ┻━┻
 ```js
-format(101000, 'en', localeData, { long: true });
+compactFormat(101000, 'en', localeData, { long: true });
 // 101 thousand
 ```
 
 But this does! ʘ‿ʘ
 ```js
-format(101000, 'ja', localeData, { long: true });
+compactFormat(101000, 'ja', localeData, { long: true });
 // 101万
 ```
 

@@ -6,7 +6,7 @@ import {
 } from './format-utils';
 import { extractIntPart, normalizeNumber } from './math-utils';
 
-export function format(
+export function compactFormat(
   value: number | string,
   locale: string,
   localeData: object,
