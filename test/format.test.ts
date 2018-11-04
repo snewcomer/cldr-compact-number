@@ -47,11 +47,17 @@ describe('format number', () => {
 
   it('returns with significantDigits', () => {
     const localeData = es;
-    let result = compactFormat(1234, 'es', localeData, { significantDigits: 1 });
+    let result = compactFormat(1234, 'es', localeData, {
+      significantDigits: 1
+    });
     expect(replaceWhitespace(result)).toBe('1.2 mil');
-    result = compactFormat(11234, 'es', localeData, { significantDigits: 1 });
+    result = compactFormat(11234, 'es', localeData, {
+      significantDigits: 1
+    });
     expect(replaceWhitespace(result)).toBe('11.2 mil');
-    result = compactFormat(91934, 'es', localeData, { significantDigits: 2 });
+    result = compactFormat(91934, 'es', localeData, {
+      significantDigits: 2
+    });
     expect(replaceWhitespace(result)).toBe('91.93 mil');
   });
 
