@@ -6,7 +6,7 @@ import {
 } from './format-utils';
 import { extractIntPart, normalizeNumber } from './math-utils';
 
-export default function format(
+export function format(
   value: number | string,
   locale: string,
   localeData: object,

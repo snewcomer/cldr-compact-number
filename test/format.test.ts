@@ -1,4 +1,4 @@
-import format from '../src/format';
+import { format } from '../src/format';
 import { en, es } from './locale-data';
 
 // due to regex replacement
