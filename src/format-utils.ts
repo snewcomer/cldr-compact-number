@@ -5,7 +5,7 @@ export function replaceNumber(normalized: any, format: string): string {
   return format.replace(/0*/, normalized);
 }
 
-export function normalizeLocal(locale: string): string {
+export function normalizeLocale(locale: string): string {
   return locale.replace(/_/, '-').toLowerCase();
 }
 
@@ -26,6 +26,25 @@ export function needsFormatting(format: string): RegExpMatchArray | null {
  * @param locale
  */
 export function findLocaleData(
+  localeData: any,
+  locale: string
+): object | undefined {
+  const topLevelData = localeData[locale];
+  if (!topLevelData) {
+    return;
+  }
+
+  let numbersHash = topLevelData.numbers;
+  const parentLocale = topLevelData.parentLocale;
+
+  if (!numbersHash && parentLocale) {
+    numbersHash = findLocaleData(localeData, parentLocale);
+  }
+
+  return numbersHash;
+}
+
+export function findMatchingLocale(
   localeData: any,
   locale: string
 ): object | undefined {
