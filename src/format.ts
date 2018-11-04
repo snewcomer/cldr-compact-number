@@ -6,12 +6,11 @@ import {
 } from './format-utils';
 import { extractIntPart, normalizeNumber } from './math-utils';
 
-export function format(
+export default function format(
   value: number | string,
   locale: string,
   localeData: object,
-  threshold: number,
-  options: any
+  options: any = {}
 ): string | number | undefined {
   let num = Number(value);
   if (!value || typeof num !== 'number') {
@@ -36,7 +35,8 @@ export function format(
   const {
     financialFormat = false,
     long = false,
-    significantDigits = 0
+    significantDigits = 0,
+    threshold = 0.05
   } = options;
   const rules = long ? data.decimal.long : data.decimal.short;
   if (!rules || num < 1000) {
