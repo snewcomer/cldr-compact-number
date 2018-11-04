@@ -1,9 +1,9 @@
 {
-  "name": "short-number",
+  "name": "cldr-compact-number",
   "version": "0.0.1",
   "description": "Compact number formatting logic",
-  "main": "dist/short-number.umd.js",
-  "module": "dist/short-number.es5.js",
+  "main": "dist/cldr-compact-number.umd.js",
+  "module": "dist/cldr-compact-number.es5.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "tsc && tsc --module commonjs --outDir dist/es && rollup -c rollup.config.ts",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/snewcomer/short-number.git"
+    "url": "git+ssh://git@github.com/snewcomer/cldr-compact-number.git"
   },
   "keywords": [
     "short",
@@ -35,9 +35,9 @@
   "author": "Scott Newcomer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/snewcomer/short-number/issues"
+    "url": "https://github.com/snewcomer/cldr-compact-number/issues"
   },
-  "homepage": "https://github.com/snewcomer/short-number#readme",
+  "homepage": "https://github.com/snewcomer/cldr-compact-number#readme",
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.2",

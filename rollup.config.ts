@@ -4,7 +4,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 
 const pkg = require('./package.json');
-const libraryName = 'short-number';
+const libraryName = 'cldr-compact-number';
 
 export default {
   external: [],
