@@ -8,6 +8,9 @@
   "scripts": {
     "build": "tsc && tsc --module commonjs --outDir dist/es && rollup -c rollup.config.ts",
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/format.test.ts'",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
     "start": "tsc -w & rollup -c rollup.config.ts -w",
     "prebuild": "rimraf dist",
     "test": "jest"

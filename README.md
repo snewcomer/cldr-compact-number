@@ -28,30 +28,34 @@ Usage
 ------------------------------------------------------------------------------
 The following APIs take the language code as the the second argument based on [ISO 639-1](http://www.loc.gov/standards/iso639-2/php/code_list.php).  You can also pass `en_GB` and we will normalize it to `en-GB` as well.
 
-### Service API
+### API
 
 ```js
-this.shortNumber.format(19634, 'en');
+import cldrCompactNumber from 'cldr-compact-number';
+
+const { format } = cldrCompactNumber;
+
+format(19634, 'en', localeData);
 // 19K
 ```
 
 ```js
-this.shortNumber.format(19634, 'en', { significantDigits: 1, minimumFractionDigits: 1, maximumFractionDigits: 2 });
+format(19634, 'en', localeData, { significantDigits: 1, minimumFractionDigits: 1, maximumFractionDigits: 2 });
 // 19.6K
 ```
 
 ```js
-this.shortNumber.format(101, 'en', { significantDigits: 1, financialFormat: true });
+format(101, 'en', localeData, { significantDigits: 1, financialFormat: true });
 // 0.1M
 ```
 
 ```js
-this.shortNumber.format(19634, 'ja');
+format(19634, 'ja', localeData);
 // 2万
 ```
 
 ```js
-this.shortNumber.format(19634, 'es', { significantDigits: 1 });
+format(19634, 'es', localeData, { significantDigits: 1 });
 // 19,6 mil
 ```
 
@@ -64,13 +68,13 @@ this.shortNumber.format(19634, 'es', { significantDigits: 1 });
 
 This doesn't seem shorter!!!! (╯°□°）╯︵ ┻━┻
 ```js
-this.shortNumber.format(101000, 'en', { long: true });
+format(101000, 'en', localeData, { long: true });
 // 101 thousand
 ```
 
 But this does! ʘ‿ʘ
 ```js
-this.shortNumber.format(101000, 'ja', { long: true });
+format(101000, 'ja', localeData, { long: true });
 // 101万
 ```
 
