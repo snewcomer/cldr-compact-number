@@ -2,7 +2,6 @@ cldr-compact-number
 ==============================================================================
 ![Download count all time](https://img.shields.io/npm/dt/cldr-compact-number.svg)
 [![npm version](https://badge.fury.io/js/cldr-compact-number.svg)](http://badge.fury.io/js/cldr-compact-number)
-[![Ember Observer Score](http://emberobserver.com/badges/cldr-compact-number.svg)](http://emberobserver.com/addons/cldr-compact-number)
 
 [![Dependency Status](https://david-dm.org/snewcomer/cldr-compact-number.svg)](https://david-dm.org/snewcomer/cldr-compact-number)
 [![devDependency Status](https://david-dm.org/snewcomer/cldr-compact-number/dev-status.svg)](https://david-dm.org/snewcomer/cldr-compact-number#info=devDependencies)
@@ -31,9 +30,7 @@ The following APIs take the language code as the the second argument based on [I
 ### API
 
 ```js
-import cldrCompactNumber from 'cldr-compact-number';
-
-const { compactFormat } = cldrCompactNumber;
+import compactFormat from 'cldr-compact-number';
 
 compactFormat(19634, 'en', localeData);
 // 19K
