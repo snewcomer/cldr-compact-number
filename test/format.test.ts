@@ -59,15 +59,15 @@ describe('format number', () => {
     let result = format(1234, 'es', localeData, {
       significantDigits: 1
     });
-    expect(replaceWhitespace(result)).toBe('1,2 mil');
+    expect(replaceWhitespace(result)).toBe('1.2 mil');
     result = format(11234, 'es', localeData, {
       significantDigits: 1
     });
-    expect(replaceWhitespace(result)).toBe('11,2 mil');
+    expect(replaceWhitespace(result)).toBe('11.2 mil');
     result = format(91934, 'es', localeData, {
       significantDigits: 2
     });
-    expect(replaceWhitespace(result)).toBe('91,93 mil');
+    expect(replaceWhitespace(result)).toBe('91.93 mil');
   });
 
   it('returns with financial format', () => {
