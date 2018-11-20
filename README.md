@@ -30,9 +30,7 @@ The following APIs take the language code as the the second argument based on [I
 ### API
 
 ```js
-import cldrCompactNumber from 'cldr-compact-number';
-
-const { compactFormat } = cldrCompactNumber;
+import compactFormat from 'cldr-compact-number';
 
 compactFormat(19634, 'en', localeData);
 // 19K
