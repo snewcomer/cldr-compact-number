@@ -8,7 +8,7 @@ import { extractIntPart, normalizeNumber } from './math-utils';
 
 export function compactFormat(
   value: number | string,
-  locale: string,
+  locale: string | string[],
   localeData: object,
   options: any = {}
 ): string | number | undefined {
