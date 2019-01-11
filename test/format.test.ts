@@ -16,6 +16,14 @@ describe('format number', () => {
     expect(result).toBe(1234);
   });
 
+  it('returns value if locale is an array (ember-intl)', () => {
+    const localeData = {};
+    let result = compactFormat(1234, ['en-gb'], localeData);
+    expect(result).toBe(1234);
+    result = compactFormat(1234, ['es-MX'], localeData);
+    expect(result).toBe(1234);
+  });
+
   it('returns value if no localeData provided', () => {
     const localeData = {};
     let result = format(1234, 'en-gb', localeData);
