@@ -6,13 +6,14 @@ cldr-compact-number
 [![Dependency Status](https://david-dm.org/snewcomer/cldr-compact-number.svg)](https://david-dm.org/snewcomer/cldr-compact-number)
 [![devDependency Status](https://david-dm.org/snewcomer/cldr-compact-number/dev-status.svg)](https://david-dm.org/snewcomer/cldr-compact-number#info=devDependencies)
 
-Short number formatting based on CLDR locale data.  Particularly useful for __statistical data__, showing financial numbers in __charts__, and __abbreviating number of ratings__ across a range of languages.
+Compact number formatting based on CLDR locale data.  Particularly useful for __statistical data__, showing financial numbers in __charts__, and __abbreviating number of ratings__ across a range of languages.
 
-- `1234` is converted to `1K` in English
-- `101234` is converted to `101K` in English and `101.1K` if need 1 significant digit
-- `1234` is converted to `1 mil` in Espanol
-- `101234` is converted to `101,1 mil` in Espanol if need 1 significant digit
-- `1234` is converted to `1234` in Japanese
+- `1234` is converted to `1K` in **English**
+- `101234` is converted to `101K` in **English** and `101.1K` if need 1 significant digit
+- `1234` is converted to `1 mil` in **Espanol**
+- `101234` is converted to `101,1 mil` in **Espanol** if need 1 significant digit
+- `1234` is converted to `1234` in **Japanese**
+- `101234` is converted to `10.1万` in **Japanese** if need 1 significant digit
 
 Depends on data from [cldr-numbers-full](https://github.com/unicode-cldr/cldr-numbers-full). Here is the related proposal for [Compact Decimal Format](https://github.com/tc39/ecma402/issues/37) that this addon is based on.  This is why there are no browser API's baked into something like `Intl.NumberFormat`.
 
@@ -37,12 +38,19 @@ compactFormat(19634, 'en', localeData);
 ```
 
 ```js
-compactFormat(19634, 'en', localeData, { significantDigits: 1, minimumFractionDigits: 1, maximumFractionDigits: 2 });
+compactFormat(19634, 'en', localeData, {
+  significantDigits: 1,
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 2
+});
 // 19.6K
 ```
 
 ```js
-compactFormat(101, 'en', localeData, { significantDigits: 1, financialFormat: true });
+compactFormat(101, 'en', localeData, {
+  significantDigits: 1,
+  financialFormat: true
+});
 // 0.1M
 ```
 
