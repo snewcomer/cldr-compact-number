@@ -1,9 +1,9 @@
 import compactFormat from '../src';
 import { compactFormat as format } from '../src/format';
-import { en, es } from './locale-data';
+import { en, es, fi } from './locale-data';
 
 // due to regex replacement
-function replaceWhitespace(val: any) {
+function normalizeWhitespace(val: any) {
   return val.replace(/\s+/, ' ');
 }
 
@@ -35,29 +35,29 @@ describe('format number', () => {
   it('returns value if localeData provided', () => {
     const localeData = es;
     let result = format(1234, 'es', localeData);
-    expect(replaceWhitespace(result)).toBe('1 mil');
+    expect(normalizeWhitespace(result)).toBe('1 mil');
     result = format(11234, 'es', localeData);
-    expect(replaceWhitespace(result)).toBe('11 mil');
+    expect(normalizeWhitespace(result)).toBe('11 mil');
     result = format(94999, 'es', localeData);
-    expect(replaceWhitespace(result)).toBe('95 mil');
+    expect(normalizeWhitespace(result)).toBe('95 mil');
     result = format(95000, 'es', localeData);
-    expect(replaceWhitespace(result)).toBe('95 mil');
+    expect(normalizeWhitespace(result)).toBe('95 mil');
     result = format(95001, 'es', localeData);
-    expect(replaceWhitespace(result)).toBe('100 mil');
+    expect(normalizeWhitespace(result)).toBe('100 mil');
     result = format(100000, 'es', localeData);
-    expect(replaceWhitespace(result)).toBe('100 mil');
+    expect(normalizeWhitespace(result)).toBe('100 mil');
   });
 
   it('returns value if threshold provided', () => {
     const localeData = es;
     let result = format(1234, 'es', localeData, { threshold: 0.1 });
-    expect(replaceWhitespace(result)).toBe('1 mil');
+    expect(normalizeWhitespace(result)).toBe('1 mil');
     result = format(11234, 'es', localeData, { threshold: 0.1 });
-    expect(replaceWhitespace(result)).toBe('11 mil');
+    expect(normalizeWhitespace(result)).toBe('11 mil');
     result = format(89999, 'es', localeData, { threshold: 0.1 });
-    expect(replaceWhitespace(result)).toBe('90 mil');
+    expect(normalizeWhitespace(result)).toBe('90 mil');
     result = format(90001, 'es', localeData, { threshold: 0.1 });
-    expect(replaceWhitespace(result)).toBe('90 mil');
+    expect(normalizeWhitespace(result)).toBe('90 mil');
     // result = format(95001, 'es', localeData, { threshold: 0.1 });
     // expect(replaceWhitespace(result)).toBe('100 mil');
   });
@@ -67,15 +67,15 @@ describe('format number', () => {
     let result = format(1234, 'es', localeData, {
       significantDigits: 1
     });
-    expect(replaceWhitespace(result)).toBe('1.2 mil');
+    expect(normalizeWhitespace(result)).toBe('1.2 mil');
     result = format(11234, 'es', localeData, {
       significantDigits: 1
     });
-    expect(replaceWhitespace(result)).toBe('11.2 mil');
+    expect(normalizeWhitespace(result)).toBe('11.2 mil');
     result = format(91934, 'es', localeData, {
       significantDigits: 2
     });
-    expect(replaceWhitespace(result)).toBe('91.93 mil');
+    expect(normalizeWhitespace(result)).toBe('91.93 mil');
   });
 
   it('returns with financial format', () => {
@@ -84,11 +84,20 @@ describe('format number', () => {
       financialFormat: true,
       significantDigits: 1
     });
-    expect(replaceWhitespace(result)).toBe('1.2K');
+    expect(normalizeWhitespace(result)).toBe('1.2K');
     result = format(101000, 'en', localeData, {
       financialFormat: true,
       significantDigits: 1
     });
-    expect(replaceWhitespace(result)).toBe('0.1M');
+    expect(normalizeWhitespace(result)).toBe('0.1M');
+  });
+
+  it("replaces `'.'` in the formatting string with just a .", () => {
+    const localeData = fi;
+    const result = format(1234, 'fi', localeData, {
+      significantDigits: 1
+    });
+
+    expect(normalizeWhitespace(result)).toBe('1.2 t.');
   });
 });

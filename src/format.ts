@@ -2,6 +2,7 @@ import {
   findLocaleData,
   needsFormatting,
   normalizeLocale,
+  polishString,
   replaceNumber
 } from './format-utils';
 import { extractIntPart, normalizeNumber } from './math-utils';
@@ -87,5 +88,5 @@ export function compactFormat(
     options
   );
 
-  return replaceNumber(normalized, formatter);
+  return polishString(replaceNumber(normalized, formatter));
 }

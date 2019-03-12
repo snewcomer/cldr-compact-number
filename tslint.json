@@ -7,7 +7,7 @@
   ],
   "linterOptions": {
     "exclude": [
-      "tests/locale-data.ts"
+      "test/locale-data.ts"
     ]
   },
   "jsRules": {},

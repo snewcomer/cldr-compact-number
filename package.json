@@ -10,11 +10,12 @@
     "build": "tsc && tsc --outDir dist/es && rollup -c rollup.config.ts",
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/format.test.ts'",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
+    "prepublishOnly": "npm run test:ci",
     "preversion": "npm run lint",
     "start": "tsc -w & rollup -c rollup.config.ts -w",
     "prebuild": "rimraf dist",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "npm test && npm run lint"
   },
   "jest": {
     "transform": {
