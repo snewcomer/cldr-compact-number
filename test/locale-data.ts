@@ -29,3 +29,19 @@ export const en = {
     }
   }
 }
+
+export const fi = {
+  fi: {
+    "locale": "fi",
+    "numbers": {
+      "decimal": {
+        "long": [
+          [1000, { "one": ["0 tuhat", 1], "other": ["0 tuhatta", 1] }], [10000, { "one": ["00 tuhatta", 2], "other": ["00 tuhatta", 2] }], [100000, { "one": ["000 tuhatta", 3], "other": ["000 tuhatta", 3] }], [1000000, { "one": ["0 miljoona", 1], "other": ["0 miljoonaa", 1] }], [10000000, { "one": ["00 miljoonaa", 2], "other": ["00 miljoonaa", 2] }], [100000000, { "one": ["000 miljoonaa", 3], "other": ["000 miljoonaa", 3] }], [1000000000, { "one": ["0 miljardi", 1], "other": ["0 miljardia", 1] }], [10000000000, { "one": ["00 miljardia", 2], "other": ["00 miljardia", 2] }], [100000000000, { "one": ["000 miljardia", 3], "other": ["000 miljardia", 3] }], [1000000000000, { "one": ["0 biljoona", 1], "other": ["0 biljoonaa", 1] }], [10000000000000, { "one": ["00 biljoonaa", 2], "other": ["00 biljoonaa", 2] }], [100000000000000, { "one": ["000 biljoonaa", 3], "other": ["000 biljoonaa", 3] }]
+        ],
+        "short": [
+          [1000, { "one": ["0 t'.'", 1], "other": ["0 t'.'", 1] }], [10000, { "one": ["00 t'.'", 2], "other": ["00 t'.'", 2] }], [100000, { "one": ["000 t'.'", 3], "other": ["000 t'.'", 3] }], [1000000, { "one": ["0 milj'.'", 1], "other": ["0 milj'.'", 1] }], [10000000, { "one": ["00 milj'.'", 2], "other": ["00 milj'.'", 2] }], [100000000, { "one": ["000 milj'.'", 3], "other": ["000 milj'.'", 3] }], [1000000000, { "one": ["0 mrd'.'", 1], "other": ["0 mrd'.'", 1] }], [10000000000, { "one": ["00 mrd'.'", 2], "other": ["00 mrd'.'", 2] }], [100000000000, { "one": ["000 mrd'.'", 3], "other": ["000 mrd'.'", 3] }], [1000000000000, { "one": ["0 bilj'.'", 1], "other": ["0 bilj'.'", 1] }], [10000000000000, { "one": ["00 bilj'.'", 2], "other": ["00 bilj'.'", 2] }], [100000000000000, { "one": ["000 bilj'.'", 3], "other": ["000 bilj'.'", 3] }]
+        ]
+      }
+    }
+  }
+};

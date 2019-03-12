@@ -1,4 +1,8 @@
 language: node_js
+node_js:
+  - "6"
+  - "8"
+  - "10"
 
 branches:
   only:
@@ -11,11 +15,8 @@ cache:
 notifications:
   email: false
 
-node_js:
-  - node
-
 script:
-  - npm run test
+  - npm run test:ci
 
 after_success:
   - npm run report-coverage

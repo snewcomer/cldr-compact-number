@@ -5,6 +5,10 @@ export function replaceNumber(normalized: any, format: string): string {
   return format.replace(/0*/, normalized);
 }
 
+export function polishString(str: string): string {
+  return str.replace("'.'", '.');
+}
+
 export function normalizeLocale(locale: string | string[]): string {
   if (locale instanceof Array) {
     return locale[0].replace(/_/, '-').toLowerCase();
