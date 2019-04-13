@@ -10,8 +10,8 @@ Compact number formatting based on CLDR locale data.  Particularly useful for __
 
 - `1234` is converted to `1K` in **English**
 - `101234` is converted to `101K` in **English** and `101.1K` if need 1 significant digit
-- `1234` is converted to `1 mil` in **Espanol**
-- `101234` is converted to `101,1 mil` in **Espanol** if need 1 significant digit
+- `1234` is converted to `1 mil` in **Español**
+- `101234` is converted to `101,1 mil` in **Español** if need 1 significant digit
 - `1234` is converted to `1234` in **Japanese**
 - `101234` is converted to `10.1万` in **Japanese** if need 1 significant digit
 
