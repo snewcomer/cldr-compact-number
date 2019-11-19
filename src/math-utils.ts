@@ -17,7 +17,7 @@ export function normalizeNumber(
   }
 ): string | number | undefined {
   if (significantDigits) {
-    return toLocaleFixed(toFixed(decimal, significantDigits), locale, {
+    return toLocaleFixed(toFixed(decimal, significantDigits) * sign, locale, {
       maximumFractionDigits,
       minimumFractionDigits
     });
