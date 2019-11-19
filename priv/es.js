@@ -82,7 +82,7 @@ let esLocaleData = {
   }
 }
 
-let es419LocaleData = {
+let es_419 = {
   es_419: {
     "locale": "es-419",
     "parentLocale": "es",
@@ -167,14 +167,14 @@ let es419LocaleData = {
   }
 }
 
-let esEsLocaleData = {
+let es_ES = {
   'es-es': {
     "locale": "es-es",
     "parentLocale": "es"
   }
 }
 
-let esMxLocaleData = {
+let es_MX = {
   'es-mx': {
     "locale": "es-mx",
     "parentLocale": "es-419",
@@ -259,7 +259,7 @@ let esMxLocaleData = {
   }
 }
 
-let esXlLocaleData = {
+let es_XL = {
   'es-xl': {
     "locale": "es-xl",
     "parentLocale": "es"
