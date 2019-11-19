@@ -1,6 +1,6 @@
 import compactFormat from '../src';
 import { compactFormat as format } from '../src/format';
-import { en, es, fi } from './locale-data';
+import { en, es, es_MX, fi } from './locale-data';
 
 // due to regex replacement
 function normalizeWhitespace(val: any) {
@@ -128,6 +128,11 @@ describe('format number', () => {
   it('defaults with english', () => {
     let result = format(1234, 'en');
     expect(normalizeWhitespace(result)).toBe('1K');
+  });
+
+  it('works with es_MX', () => {
+    let result = format(1234, 'es-MX', es_MX);
+    expect(normalizeWhitespace(result)).toBe('1 k');
   });
 
   it('works with multiple locales', () => {
