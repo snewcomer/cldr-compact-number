@@ -1,6 +1,6 @@
 {
   "name": "cldr-compact-number",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Compact number formatting logic",
   "main": "dist/cldr-compact-number.umd.js",
   "module": "dist/cldr-compact-number.es5.js",
