@@ -19,7 +19,7 @@ export function compactFormat(
     return value;
   }
 
-  localeData = { ...localeData, ...enLocaleData };
+  localeData = { ...enLocaleData, ...localeData };
 
   // figure out which numbers hash based on the locale
   locale = normalizeLocale(locale); // en_GB -> en-GB
