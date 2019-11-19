@@ -6,17 +6,20 @@ import {
   replaceNumber
 } from './format-utils';
 import { extractIntPart, normalizeNumber } from './math-utils';
+import enLocaleData from '../locales/en';
 
 export function compactFormat(
   value: number | string,
   locale: string | string[],
-  localeData: object,
+  localeData?: object,
   options: any = {}
 ): string | number | undefined {
   let num = Number(value);
   if (!value || typeof num !== 'number') {
     return value;
   }
+
+  localeData = { ...localeData, ...enLocaleData };
 
   // figure out which numbers hash based on the locale
   locale = normalizeLocale(locale); // en_GB -> en-GB
