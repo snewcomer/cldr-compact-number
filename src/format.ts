@@ -22,7 +22,6 @@ export function compactFormat(
   localeData = { ...enLocaleData, ...localeData };
 
   // figure out which numbers hash based on the locale
-  locale = normalizeLocale(locale); // en_GB -> en-GB
   const data: any | undefined = findLocaleData(localeData, locale);
   if (!data) {
     return value;
@@ -83,11 +82,12 @@ export function compactFormat(
     return value;
   }
 
+  let normalizedLocale: string = normalizeLocale(locale);
   const normalized = normalizeNumber(
     extractIntPart(num, range, numberOfDigits),
     arbitraryPrecision,
     sign,
-    locale,
+    normalizedLocale,
     options
   );
 

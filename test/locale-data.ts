@@ -15,7 +15,7 @@ export const es = {
 };
 
 export const es_MX = {
-  'es-mx': {
+  'es-MX': {
     "locale": "es-MX",
     "parentLocale": "es-419",
     "numbers": {
