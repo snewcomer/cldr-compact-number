@@ -1,3 +1,4 @@
+import enLocaleData from '../locales/en';
 import {
   findLocaleData,
   needsFormatting,
@@ -6,7 +7,6 @@ import {
   replaceNumber
 } from './format-utils';
 import { extractIntPart, normalizeNumber } from './math-utils';
-import enLocaleData from '../locales/en';
 
 export function compactFormat(
   value: number | string,
@@ -82,7 +82,7 @@ export function compactFormat(
     return value;
   }
 
-  let normalizedLocale: string = normalizeLocale(locale);
+  const normalizedLocale: string = normalizeLocale(locale);
   const normalized = normalizeNumber(
     extractIntPart(num, range, numberOfDigits),
     arbitraryPrecision,

@@ -126,12 +126,12 @@ describe('format number', () => {
   });
 
   it('defaults with english', () => {
-    let result = format(1234, 'en');
+    const result = format(1234, 'en');
     expect(normalizeWhitespace(result)).toBe('1K');
   });
 
   it('works with es_MX', () => {
-    let result = format(1234, 'es-MX', es_MX);
+    const result = format(1234, 'es-MX', es_MX);
     expect(normalizeWhitespace(result)).toBe('1 k');
   });
 

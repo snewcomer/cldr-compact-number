@@ -37,7 +37,8 @@ export function findLocaleData(
   locale: string | string[]
 ): object | undefined {
   locale = Array.isArray(locale) ? locale[0] : locale;
-  const topLevelData = localeData[locale] || localeData[normalizeLocale(locale)];
+  const topLevelData =
+    localeData[locale] || localeData[normalizeLocale(locale)];
   if (!topLevelData) {
     return;
   }
@@ -57,7 +58,8 @@ export function findMatchingLocale(
   locale: string | string[]
 ): object | undefined {
   locale = Array.isArray(locale) ? locale[0] : locale;
-  const topLevelData = localeData[locale] || localeData[normalizeLocale(locale)];
+  const topLevelData =
+    localeData[locale] || localeData[normalizeLocale(locale)];
   if (!topLevelData) {
     return;
   }
