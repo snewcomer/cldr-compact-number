@@ -34,9 +34,10 @@ export function needsFormatting(format: string): RegExpMatchArray | null {
  */
 export function findLocaleData(
   localeData: any,
-  locale: string
+  locale: string | string[]
 ): object | undefined {
-  const topLevelData = localeData[locale];
+  locale = Array.isArray(locale) ? locale[0] : locale;
+  const topLevelData = localeData[locale] || localeData[normalizeLocale(locale)];
   if (!topLevelData) {
     return;
   }
@@ -53,9 +54,10 @@ export function findLocaleData(
 
 export function findMatchingLocale(
   localeData: any,
-  locale: string
+  locale: string | string[]
 ): object | undefined {
-  const topLevelData = localeData[locale];
+  locale = Array.isArray(locale) ? locale[0] : locale;
+  const topLevelData = localeData[locale] || localeData[normalizeLocale(locale)];
   if (!topLevelData) {
     return;
   }

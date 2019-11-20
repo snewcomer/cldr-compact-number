@@ -30,6 +30,10 @@ The following APIs take the language code as the the second argument based on [I
 
 ### API
 
+We default this library with `en` `localeData`.  What is `localeData`?
+
+`localeData` for most cases comes through a build tool.  You define what languages you want upfront so as to avoid bloating your application bundle and the build tool parses CLDR data and formats it. See `priv/` for examples of what shape the data should be in if you want to manually construct this data.
+
 ```js
 import compactFormat from 'cldr-compact-number';
 

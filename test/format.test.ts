@@ -1,6 +1,6 @@
 import compactFormat from '../src';
 import { compactFormat as format } from '../src/format';
-import { en, es, fi } from './locale-data';
+import { en, es, es_MX, fi } from './locale-data';
 
 // due to regex replacement
 function normalizeWhitespace(val: any) {
@@ -14,6 +14,14 @@ describe('format number', () => {
     expect(result).toBe(1234);
     result = compactFormat(1234, 'es-MX', localeData);
     expect(result).toBe(1234);
+  });
+
+  it('works with negative values', () => {
+    const localeData = {};
+    let result = compactFormat(-1234, 'en-gb', localeData);
+    expect(result).toBe(-1234);
+    result = compactFormat(-1234, 'es-MX', localeData);
+    expect(result).toBe(-1234);
   });
 
   it('returns value if locale is an array (ember-intl)', () => {
@@ -67,15 +75,31 @@ describe('format number', () => {
     let result = format(1234, 'es', localeData, {
       significantDigits: 1
     });
-    expect(normalizeWhitespace(result)).toBe('1.2 mil');
+    expect(normalizeWhitespace(result)).toBe('1,2 mil');
     result = format(11234, 'es', localeData, {
       significantDigits: 1
     });
-    expect(normalizeWhitespace(result)).toBe('11.2 mil');
+    expect(normalizeWhitespace(result)).toBe('11,2 mil');
     result = format(91934, 'es', localeData, {
       significantDigits: 2
     });
-    expect(normalizeWhitespace(result)).toBe('91.93 mil');
+    expect(normalizeWhitespace(result)).toBe('91,93 mil');
+  });
+
+  it('returns with significantDigits and negative number', () => {
+    const localeData = es;
+    let result = format(-1234, 'es', localeData, {
+      significantDigits: 1
+    });
+    expect(normalizeWhitespace(result)).toBe('-1,2 mil');
+    result = format(-11234, 'es', localeData, {
+      significantDigits: 1
+    });
+    expect(normalizeWhitespace(result)).toBe('-11,2 mil');
+    result = format(-91934, 'es', localeData, {
+      significantDigits: 2
+    });
+    expect(normalizeWhitespace(result)).toBe('-91,93 mil');
   });
 
   it('returns with financial format', () => {
@@ -98,6 +122,28 @@ describe('format number', () => {
       significantDigits: 1
     });
 
-    expect(normalizeWhitespace(result)).toBe('1.2 t.');
+    expect(normalizeWhitespace(result)).toBe('1,2 t.');
+  });
+
+  it('defaults with english', () => {
+    let result = format(1234, 'en');
+    expect(normalizeWhitespace(result)).toBe('1K');
+  });
+
+  it('works with es_MX', () => {
+    let result = format(1234, 'es-MX', es_MX);
+    expect(normalizeWhitespace(result)).toBe('1 k');
+  });
+
+  it('works with multiple locales', () => {
+    const localeData = { ...es, ...fi };
+    let result = format(1234, 'es', localeData);
+    expect(normalizeWhitespace(result)).toBe('1 mil');
+
+    result = format(1234, 'en', localeData);
+    expect(normalizeWhitespace(result)).toBe('1K');
+
+    result = format(1234, 'fi', localeData);
+    expect(normalizeWhitespace(result)).toBe('1 t.');
   });
 });
